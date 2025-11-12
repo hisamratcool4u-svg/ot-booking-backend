@@ -10,12 +10,22 @@ import java.util.List;
 @RequestMapping("/api/ots")
 @CrossOrigin(origins = "*")
 public class OperationTheatreController {
+
     private final OperationTheatreRepository repo;
-    public OperationTheatreController(OperationTheatreRepository repo){this.repo = repo;}
 
+    public OperationTheatreController(OperationTheatreRepository repo) {
+        this.repo = repo;
+    }
+
+    // 🔹 Get all Operation Theatres
     @GetMapping
-    public List<OperationTheatre> all(){ return repo.findAll(); }
+    public List<OperationTheatre> getAllOperationTheatres() {
+        return repo.findAll();
+    }
 
+    // 🔹 Create a new Operation Theatre
     @PostMapping
-    public OperationTheatre create(@RequestBody OperationTheatre ot){ return repo.save(ot); }
+    public OperationTheatre createOperationTheatre(@RequestBody OperationTheatre ot) {
+        return repo.save(ot);
+    }
 }
